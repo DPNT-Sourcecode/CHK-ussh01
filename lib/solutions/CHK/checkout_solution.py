@@ -90,7 +90,7 @@ def checkout(skus):
 	# Computer overall cart total
 	# cartTotal = totalA + totalB + totalC + totalD + totalE + totalF + totalG + totalH + totalI + totalJ + totalK + totalL + totalM + totalN + totalO + totalP + totalQ + totalR + totalS + totalT + totalU + totalV + totalW + totalX + totalY + totalZ
 	cartTotal = totalA + totalB + totalC + totalD + totalE + totalF + totalG + totalH + totalI + totalJ + totalK + totalL + totalM + totalN + totalO + totalP + totalQ + totalR+ totalU + totalV + totalW
-	cartTotal = applyGroupOffer(itemQtys)
+	cartTotal += applyGroupOffer(itemQtys)
 	
 	return cartTotal
 
@@ -142,7 +142,8 @@ def applyGroupOffer(itemQtys):
 	groupTotalPrice = 0
 	potentialGroupString = ""
 	for item in groupQtys:
-		potentialGroupString += item
+		if groupQtys[item] > 0:
+			potentialGroupString += item
 
 
 	# if len(potentialGroupString) >= 3:
@@ -169,6 +170,7 @@ def applyGroupOffer(itemQtys):
 		
 
 	return groupTotalPrice + normalTotalPrice
+
 
 
 
