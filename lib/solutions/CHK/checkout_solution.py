@@ -150,8 +150,14 @@ def applyGroupOffer(itemQtys):
 
 	# if len(potentialGroupString) >= 3:
 	lastIndex = len(potentialGroupString) % 3
-	groupString = potentialGroupString[:-lastIndex]
-	normalItems = potentialGroupString[-lastIndex:]
+
+	groupString = ""
+	normalItems = ""
+	if lastIndex == 0:
+		groupString = potentialGroupString
+	else: 
+		groupString = potentialGroupString[:-lastIndex]
+		normalItems = potentialGroupString[-lastIndex:]
 
 	print("Group: " + groupString)
 	print("Normal: " + normalItems)
