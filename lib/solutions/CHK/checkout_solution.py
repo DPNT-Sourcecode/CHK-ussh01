@@ -10,8 +10,7 @@ def checkout(skus):
 	# Alphabets = SKUs
 	items = skus.split(' ')
 
-	# Keep track of the total cost of the cart
-	cartTotal = 0
+	# Keep track of the quantity of each item in the cart
 	qtyA = 0
 	qtyB = 0
 	qtyC = 0
@@ -28,5 +27,13 @@ def checkout(skus):
 		else:
 			return -1
 
-	# Compute cart total
-	totalA = 
+	# Compute each individual SKUs totals
+	totalA = ((qtyA % 3) * 50 + int((a / 3)) * 130)
+	totalB = ((qtyB % 3) * 30 + int((b / 3)) * 45)
+	totalC = qtyC * 20
+	totalD = qtyD * 15
+
+	# Computer overall cart total
+	cartTotal = totalA + totalB + totalC + totalD
+
+	return cartTotal
