@@ -11,6 +11,7 @@ def checkout(skus):
 		return 0
 
 	# Keep track of the quantity of each item in the cart
+	itemQtys = {}
 	qtyA = 0
 	qtyB = 0
 	qtyC = 0
@@ -49,7 +50,7 @@ def checkout(skus):
 		qtyB = qtyB - int(qtyE / 2)
 		totalB = ((qtyB % 2) * 30 + int((qtyB / 2)) * 45)
 
-		
+
 	totalF = ((qtyF % 3) * 10 + int((qtyF / 3)) * 20)
 
 	# Computer overall cart total
