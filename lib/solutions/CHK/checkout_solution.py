@@ -28,31 +28,34 @@ def checkout(skus):
 	# No offer items first
 	totalC = itemQtys['C'] * 20
 	totalD = itemQtys['D'] * 15
-	totalE = itemQtys['E'] * 40
 	totalG = itemQtys['G'] * 20
 	totalI = itemQtys['I'] * 35
 	totalJ = itemQtys['J'] * 60
+	totalL = itemQtys['L'] * 90
+	totalM = itemQtys['M'] * 15
+	totalO = itemQtys['O'] * 10
+	totalS = itemQtys['S'] * 30
+	totalT = itemQtys['T'] * 20
+	totalW = itemQtys['W'] * 20
+	totalX = itemQtys['X'] * 90
+	totalY = itemQtys['Y'] * 10
+	totalZ = itemQtys['Z'] * 50
 
 	# A
 	totalA = int((itemQtys['A'] / 5)) * 200 # Favour Pack of 5
 	itemQtys['A'] -= 5 * int(itemQtys['A'] / 5)
 	totalA += ((itemQtys['A'] % 3) * 50 + int((itemQtys['A'] / 3)) * 130) # Computer for pack of 3 & remainder
 
-	
-
-	# If E offer applies, update B quantity accordingly
+	# B: If E offer applies, update B quantity accordingly
 	totalB = 0
 	if itemQtys['B'] != 0:
 		itemQtys['B'] = itemQtys['B'] - int(itemQtys['E'] / 2)
 		totalB = ((itemQtys['B'] % 2) * 30 + int((itemQtys['B'] / 2)) * 45)
 
-
+	
 	totalF = ((itemQtys['F'] % 3) * 10 + int((itemQtys['F'] / 3)) * 20)
 
 	# Computer overall cart total
 	cartTotal = totalA + totalB + totalC + totalD + totalE + totalF
 
 	return cartTotal
-
-
-
