@@ -117,9 +117,6 @@ def applyOffer3(itemQty, firstOfferQty, secondOfferQty, firstOfferPrice, secondO
 	return total
 
 def applyGroupOffer(itemQtys):
-	# Keep track of each group's totals
-	# groupQtys = {'S': 0, 'T': 0, 'X': 0, 'Y': 0, 'Z': 0}
-
 	# NOTE: FAVOUR CUSTOMER PRICE POINT
 	# Highest to lowest prices: Z > S=T=Y >  X
 	groupQtys = {'Z': 0, 'S': 0, 'T': 0, 'Y': 0, 'X': 0}
@@ -130,29 +127,24 @@ def applyGroupOffer(itemQtys):
 	groupQtys['Y'] = itemQtys['Y']
 	groupQtys['Z'] = itemQtys['Z']
 
-	# Sample: 3Z, 2S, 1X
-	# Sample: 1Z, 2S, 1X
-
 	# Z. not enough for group
 	# S. not enough
 	# S. enough
 	# X. not enough
 
-	# print("Z: " + str(groupQtys['Z']))
-	# Find total qty of items across the group
+	# Represent item quantities dictionary as string (arranged from highest to lowest cost SKUs)
 	potentialGroupString = ""
 	for item in groupQtys:
-		# if groupQtys[item] > 0:
 		potentialGroupString += item * groupQtys[item]
 
-	print("Potential: " + potentialGroupString)
-
+	# If empty string, return zero
 	if len(potentialGroupString) == 0:
 		return 0
 
-	# if len(potentialGroupString) >= 3:
+	# Get last index after groups of 3
 	lastIndex = len(potentialGroupString) % 3
 
+	# Separate grouped items and items not in the group (to calculate later)
 	groupString = ""
 	normalItems = ""
 	if lastIndex == 0:
@@ -161,10 +153,10 @@ def applyGroupOffer(itemQtys):
 		groupString = potentialGroupString[:-lastIndex]
 		normalItems = potentialGroupString[-lastIndex:]
 
-	print("Group: " + groupString)
-	print("Normal: " + normalItems)
+	# Calculate group price
 	groupTotalPrice = int(len(groupString) / 3) * 45
 
+	# Calculate normal non-offer prices for the remaining items
 	normalTotalPrice = 0
 	for item in normalItems:
 		if item == 'Z':
