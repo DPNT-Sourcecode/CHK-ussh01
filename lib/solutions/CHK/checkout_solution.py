@@ -49,10 +49,12 @@ def checkout(skus):
 	totalA += ((itemQtys['A'] % 3) * 50 + int((itemQtys['A'] / 3)) * 130) # Computer for pack of 3 & remainder
 
 	# B: If E offer applies, update B quantity accordingly
-	totalB = 0
-	if itemQtys['B'] != 0:
-		itemQtys['B'] = itemQtys['B'] - int(itemQtys['E'] / 2)
-		totalB = ((itemQtys['B'] % 2) * 30 + int((itemQtys['B'] / 2)) * 45)
+	# totalB = 0
+	# if itemQtys['B'] != 0:
+	# 	itemQtys['B'] = itemQtys['B'] - int(itemQtys['E'] / 2)
+	# 	totalB = ((itemQtys['B'] % 2) * 30 + int((itemQtys['B'] / 2)) * 45)
+	totalB = applyOffer1(itemQtys['B'], itemQtys['E'], 2, 30, 45, 2)
+
 
 	# F
 	totalF = ((itemQtys['F'] % 3) * 10 + int((itemQtys['F'] / 3)) * 20)
@@ -66,7 +68,7 @@ def checkout(skus):
 	totalK = ((itemQtys['K'] % 2) * 80 + int((itemQtys['K'] / 2)) * 150)
 
 	# M
-
+	totalM = applyOffer1(itemQtys['M'], itemQtys['N'], 3, )
 
 
 
@@ -77,13 +79,14 @@ def checkout(skus):
 
 
 # Example offer: 2E get one B free
-def applyOffer1(itemQty1, itemQty2, , normalPrice):
+def applyOffer1(itemQty1, itemQty2, specialOfferQty, normalPrice, normalOfferPrice, normalOfferQty):
 	total = 0
 	if itemQty1 != 0:
-		itemQty1 = itemQty1 - int(itemQty2 / 2)
-		total = ((itemQty1 % 2) * 30 + int((itemQty1 / 2)) * 45)
+		itemQty1 = itemQty1 - int(itemQty2 / specialOfferQty)
+		total = ((itemQty1 % normalOfferQty) * normalPrice + int((itemQty1 / normalOfferQty)) * normalOfferPrice)
 
 	return total
+
 
 
 
