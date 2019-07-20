@@ -21,7 +21,7 @@ def checkout(skus):
 		if item in itemQtys:
 			itemQtys[item] += 1
 		else:
-			return -1s
+			return -1
 
 	# Compute each individual SKUs totals
 
@@ -44,7 +44,7 @@ def checkout(skus):
 
 	# A
 	totalA = int((itemQtys['A'] / 5)) * 200 # Favour Pack of 5
-	itemQtys['A'] -= 5 * int(itemQtys['A'] / 5)
+	itemQtys['A'] = itemQtys['A'] % 5
 	totalA += ((itemQtys['A'] % 3) * 50 + int((itemQtys['A'] / 3)) * 130) # Computer for pack of 3 & remainder
 
 	# B: If E offer applies, update B quantity accordingly
@@ -58,8 +58,14 @@ def checkout(skus):
 
 	# H
 	totalH = int((itemQtys['H'] / 10)) * 80
-	itemQtys['H'] -= 10 * int(itemQtys['H'] / 10)
-	totalH += ((itemQtys['H'] % 3) * 50 + int((itemQtys['H'] / 3)) * 130)
+	itemQtys['H'] = itemQtys['H'] % 10
+	totalH += ((itemQtys['H'] % 5) * 10 + int((itemQtys['H'] / 5)) * 45)
+
+	# K
+	totalK = ((itemQtys['K'] % 2) * 80 + int((itemQtys['K'] / 2)) * 150)
+
+	# N
+
 
 
 
@@ -67,4 +73,5 @@ def checkout(skus):
 	cartTotal = totalA + totalB + totalC + totalD + totalE + totalF
 
 	return cartTotal
+
 
