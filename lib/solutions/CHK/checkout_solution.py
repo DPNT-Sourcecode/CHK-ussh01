@@ -62,10 +62,10 @@ def checkout(skus):
 	totalF = applyOffer2(itemQtys['F'], 10, 3, 20)
 
 	# H
-	totalH = int((itemQtys['H'] / 10)) * 80
-	itemQtys['H'] = itemQtys['H'] % 10
-	totalH += ((itemQtys['H'] % 5) * 10 + int((itemQtys['H'] / 5)) * 45)
-	totalH = applyOffer3(itemQtys['H'], )
+	# totalH = int((itemQtys['H'] / 10)) * 80
+	# itemQtys['H'] = itemQtys['H'] % 10
+	# totalH += ((itemQtys['H'] % 5) * 10 + int((itemQtys['H'] / 5)) * 45)
+	totalH = applyOffer3(itemQtys['H'], 10, 5, 80, 45, 10)
 
 	# K
 	totalK = applyOffer2(itemQtys['K'], 80, 2, 150)
@@ -85,7 +85,6 @@ def checkout(skus):
 
 	# V
 	totalV = applyOffer3(itemQtys['V'], 3, 2, 130, 90, 50)
-
 
 
 	# Computer overall cart total
@@ -114,5 +113,6 @@ def applyOffer3(itemQty, firstOfferQty, secondOfferQty, firstOfferPrice, secondO
 	total += ((itemQty % secondOfferQty) * normalPrice + int(itemQty / secondOfferQty) * secondOfferPrice) # Computer for second offer
 
 	return total
+
 
 
