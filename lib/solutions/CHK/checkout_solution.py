@@ -80,7 +80,10 @@ def checkout(skus):
 	totalQ = applyOffer1(itemQtys['Q'], itemQtys['R'], 3, 30, 80, 3)
 
 	# U
-	
+	totalU = applyOffer2(itemQtys['U'], 40, 3, 80)
+
+	# V
+	totalV = 
 
 
 
@@ -104,6 +107,13 @@ def applyOffer1(itemQty1, itemQty2, specialOfferQty, normalPrice, normalOfferPri
 def applyOffer2(itemQty, normalPrice, offerQty, offerPrice):
 	return ((itemQty % offerQty) * normalPrice + int((itemQty / offerQty)) * offerPrice)
 
+# Example: 3A for 130, 5A for 200
+def applyOffer3(itemQty, firstOfferQty, secondOfferQty, firstOfferPrice, secondOfferPrice, normalPrice):
+	total = int(itemQty / 5) * 200 # Favour Pack of 5
+	itemQty = itemQty % 5
+	total += ((itemQtys['A'] % 3) * 50 + int((itemQtys['A'] / 3)) * 130) # Computer for pack of 3 & remainder
+
+	return total
 
 
 
