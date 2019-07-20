@@ -4,6 +4,8 @@
 # skus = unicode string
 def checkout(skus):
 	# CHECK FOR VALID INPUT
+	if type(skus) != str:
+		return -1
 
 	# Alphabets = SKUs
 	items = skus.split(' ')
@@ -25,3 +27,6 @@ def checkout(skus):
 			qtyD += 1
 		else:
 			return -1
+
+	# Compute cart total
+	totalA = 
