@@ -138,12 +138,14 @@ def applyGroupOffer(itemQtys):
 	# S. enough
 	# X. not enough
 
+	# print("Z: " + str(groupQtys['Z']))
 	# Find total qty of items across the group
 	potentialGroupString = ""
 	for item in groupQtys:
-		if groupQtys[item] > 0:
-			potentialGroupString += item
-			groupQtys[item] -= 1
+		# if groupQtys[item] > 0:
+		potentialGroupString += item * groupQtys[item]
+
+	print("Potential: " + potentialGroupString)
 
 	if len(potentialGroupString) == 0:
 		return 0
@@ -178,13 +180,6 @@ def applyGroupOffer(itemQtys):
 		
 
 	return groupTotalPrice + normalTotalPrice
-
-
-
-
-
-
-
 
 
 
