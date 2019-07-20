@@ -116,10 +116,11 @@ def applyOffer3(itemQty, firstOfferQty, secondOfferQty, firstOfferPrice, secondO
 
 def applyGroupOffer(itemQtys):
 	# Keep track of each group's totals
-	groupQtys = {'S': 0, 'T': 0, 'X': 0, 'Y': 0, 'Z': 0}
+	# groupQtys = {'S': 0, 'T': 0, 'X': 0, 'Y': 0, 'Z': 0}
 
 	# NOTE: FAVOUR CUSTOMER PRICE POINT
 	# Highest to lowest prices: Z > S=T=Y >  X
+	groupQtys = {'Z': 0, 'S': 0, 'T': 0, 'Y': 0, 'X': 0}
 
 	groupQtys['S'] = itemQtys['S']
 	groupQtys['T'] = itemQtys['T']
@@ -127,38 +128,22 @@ def applyGroupOffer(itemQtys):
 	groupQtys['Y'] = itemQtys['Y']
 	groupQtys['Z'] = itemQtys['Z']
 
+	# Sample: 3Z, 2S, 1X
+
 	# Find total qty of items across the group
 	groupQtyTotal = 0
 	groupTotalPrice = 0
 	for item in groupQtys:
 		if item == 'Z':
 			groupQtyTotal += groupQtys[item]
-
-		if groupQtyTotal % 3 == 0:
-			groupTotalPrice = int(groupQtyTotal / 3) * 45
-
-
-	# Update 
-	for i in range(groupQtyTotal):
-
+			if groupQtyTotal % 3 == 0:
+				groupTotalPrice = int(groupQtyTotal / 3) * 45
+				groupQtys[item] -= 3
 
 
 	groupTotalPrice = int(groupQtyTotal / 3) * 45
 
 	# Calculate total for the individual items after calculating group price
-
-
-
-	groupQtyTotal = 0
-	for item in itemQtys:
-		if item == 'S':
-			groupQtyTotal += 1
-			# groupQtys[item] += 1
-			itemQtys[item] 
-		elif item == 'T':
-		elif item == 'X':
-		elif item == 'Y':
-		elif item == 'Z':
 
 
 
