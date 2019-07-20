@@ -40,9 +40,9 @@ def checkout(skus):
 	totalE = qtyE * 40
 
 	totalB = 0
-	if int(qtyE / 2) == 0:
+	if qtyB != 0:
 		qtyB = qtyB - int(qtyE / 2)
-	totalB = ((qtyB % 2) * 30 + int((qtyB / 2)) * 45)
+		totalB = ((qtyB % 2) * 30 + int((qtyB / 2)) * 45)
 
 	# Computer overall cart total
 	cartTotal = totalA + totalB + totalC + totalD + totalE
