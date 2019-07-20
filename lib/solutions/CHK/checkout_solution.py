@@ -81,7 +81,7 @@ def checkout(skus):
 	totalQ = applyOffer1(itemQtys['Q'], itemQtys['R'], 3, 30, 80, 3)
 
 	# U
-	totalU = applyOffer2(itemQtys['U'], 40, 3, 80)
+	totalU = applyOffer2(itemQtys['U'], 40, 4, 120)
 
 	# V
 	totalV = applyOffer3(itemQtys['V'], 3, 2, 130, 90, 50)

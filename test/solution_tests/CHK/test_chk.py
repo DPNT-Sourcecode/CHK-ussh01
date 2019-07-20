@@ -23,3 +23,7 @@ class TestChk():
 
         assert checkout_solution.checkout("NNNM") == 120
         assert checkout_solution.checkout("NNNMM") == 135
+
+        assert checkout_solution.checkout("UUU") == 120
+        assert checkout_solution.checkout("UUUU") == 120
+        assert checkout_solution.checkout("UUUUU") == 160
