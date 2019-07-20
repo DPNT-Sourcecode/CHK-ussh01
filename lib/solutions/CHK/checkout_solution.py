@@ -33,7 +33,6 @@ def checkout(skus):
 	totalI = itemQtys['I'] * 35
 	totalJ = itemQtys['J'] * 60
 	totalL = itemQtys['L'] * 90
-	# totalM = itemQtys['M'] * 15
 	totalN = itemQtys['N'] * 40
 	totalO = itemQtys['O'] * 10
 	totalR = itemQtys['R'] * 50
@@ -45,9 +44,10 @@ def checkout(skus):
 	totalZ = itemQtys['Z'] * 50
 
 	# A
-	totalA = int((itemQtys['A'] / 5)) * 200 # Favour Pack of 5
-	itemQtys['A'] = itemQtys['A'] % 5
-	totalA += ((itemQtys['A'] % 3) * 50 + int((itemQtys['A'] / 3)) * 130) # Computer for pack of 3 & remainder
+	# totalA = int((itemQtys['A'] / 5)) * 200 # Favour Pack of 5
+	# itemQtys['A'] = itemQtys['A'] % 5
+	# totalA += ((itemQtys['A'] % 3) * 50 + int((itemQtys['A'] / 3)) * 130) # Computer for pack of 3 & remainder
+	totalA = applyOffer3(itemQtys['A'], 5, 3, 200, 130, 50)
 
 	# B: If E offer applies, update B quantity accordingly
 	# totalB = 0
@@ -65,6 +65,7 @@ def checkout(skus):
 	totalH = int((itemQtys['H'] / 10)) * 80
 	itemQtys['H'] = itemQtys['H'] % 10
 	totalH += ((itemQtys['H'] % 5) * 10 + int((itemQtys['H'] / 5)) * 45)
+	totalH = applyOffer3(itemQtys['H'], )
 
 	# K
 	totalK = applyOffer2(itemQtys['K'], 80, 2, 150)
@@ -83,13 +84,12 @@ def checkout(skus):
 	totalU = applyOffer2(itemQtys['U'], 40, 3, 80)
 
 	# V
-	totalV = 
+	totalV = applyOffer3(itemQtys['V'], 3, 2, 130, 90, 50)
 
 
 
 	# Computer overall cart total
-	cartTotal = totalA + totalB + totalC + totalD + totalE + totalF + totalG + totalI + totalJ + totalK + totalL + totalM + totalN
-	# cartTotal = totalA + totalB + totalC + totalD + totalE + totalF + totalG + totalI + totalJ + totalK + totalL + totalM + totalN + totalO + totalP + totalQ + totalR + totalS + totalT + totalU + totalV + totalW + totalX + totalY + totalZ
+	cartTotal = totalA + totalB + totalC + totalD + totalE + totalF + totalG + totalH + totalI + totalJ + totalK + totalL + totalM + totalN + totalO + totalP + totalQ + totalR + totalS + totalT + totalU + totalV + totalW + totalX + totalY + totalZ
 
 	return cartTotal
 
@@ -109,17 +109,10 @@ def applyOffer2(itemQty, normalPrice, offerQty, offerPrice):
 
 # Example: 3A for 130, 5A for 200
 def applyOffer3(itemQty, firstOfferQty, secondOfferQty, firstOfferPrice, secondOfferPrice, normalPrice):
-	total = int(itemQty / 5) * 200 # Favour Pack of 5
-	itemQty = itemQty % 5
-	total += ((itemQtys['A'] % 3) * 50 + int((itemQtys['A'] / 3)) * 130) # Computer for pack of 3 & remainder
+	total = int(itemQty / firstOfferQty) * firstOfferPrice # Favour first offer
+	itemQty = itemQty % firstOfferQty
+	total += ((itemQty % secondOfferQty) * normalPrice + int(itemQty / secondOfferQty) * secondOfferPrice) # Computer for second offer
 
 	return total
-
-
-
-
-
-
-
 
 
