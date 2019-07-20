@@ -36,12 +36,12 @@ def checkout(skus):
 	totalN = itemQtys['N'] * 40
 	totalO = itemQtys['O'] * 10
 	totalR = itemQtys['R'] * 50
-	totalS = itemQtys['S'] * 20
-	totalT = itemQtys['T'] * 20
+	# totalS = itemQtys['S'] * 20
+	# totalT = itemQtys['T'] * 20
 	totalW = itemQtys['W'] * 20
-	totalX = itemQtys['X'] * 17
-	totalY = itemQtys['Y'] * 20
-	totalZ = itemQtys['Z'] * 21
+	# totalX = itemQtys['X'] * 17
+	# totalY = itemQtys['Y'] * 20
+	# totalZ = itemQtys['Z'] * 21
 
 	# A
 	# totalA = int((itemQtys['A'] / 5)) * 200 # Favour Pack of 5
@@ -88,8 +88,10 @@ def checkout(skus):
 
 
 	# Computer overall cart total
-	cartTotal = totalA + totalB + totalC + totalD + totalE + totalF + totalG + totalH + totalI + totalJ + totalK + totalL + totalM + totalN + totalO + totalP + totalQ + totalR + totalS + totalT + totalU + totalV + totalW + totalX + totalY + totalZ
-
+	# cartTotal = totalA + totalB + totalC + totalD + totalE + totalF + totalG + totalH + totalI + totalJ + totalK + totalL + totalM + totalN + totalO + totalP + totalQ + totalR + totalS + totalT + totalU + totalV + totalW + totalX + totalY + totalZ
+	cartTotal = totalA + totalB + totalC + totalD + totalE + totalF + totalG + totalH + totalI + totalJ + totalK + totalL + totalM + totalN + totalO + totalP + totalQ + totalR+ totalU + totalV + totalW
+	cartTotal = applyGroupOffer(itemQtys)
+	
 	return cartTotal
 
 
@@ -140,7 +142,7 @@ def applyGroupOffer(itemQtys):
 	groupTotalPrice = 0
 	potentialGroupString = ""
 	for item in groupQtys:
-		potentialGroupString += groupQtys[item]
+		potentialGroupString += item
 
 
 	# if len(potentialGroupString) >= 3:
@@ -148,6 +150,8 @@ def applyGroupOffer(itemQtys):
 	groupString = potentialGroupString[:-lastIndex]
 	normalItems = potentialGroupString[-lastIndex:]
 
+	print(groupString)
+	print(normalItems)
 	groupTotalPrice = int(len(groupString) / 3) * 45
 
 	normalTotalPrice = 0

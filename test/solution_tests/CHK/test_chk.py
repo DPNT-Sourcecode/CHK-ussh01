@@ -27,3 +27,5 @@ class TestChk():
         assert checkout_solution.checkout("UUU") == 120
         assert checkout_solution.checkout("UUUU") == 120
         assert checkout_solution.checkout("UUUUU") == 160
+
+        assert checkout_solution.checkout("STX") == 45
