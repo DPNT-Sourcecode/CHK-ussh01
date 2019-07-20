@@ -115,4 +115,19 @@ def applyOffer3(itemQty, firstOfferQty, secondOfferQty, firstOfferPrice, secondO
 	return total
 
 def applyGroupOffer(itemQtys):
-	
+	# Keep track of each group's totals
+	groupQtys = {'S': 0, 'T': 0, 'X': 0, 'Y': 0, 'Z': 0}
+	for item in itemQtys:
+		if item == 'S':
+			groupQtys[item] += 1
+			itemQtys[item]
+		elif item == 'T':
+		elif item == 'X':
+		elif item == 'Y':
+		elif item == 'Z':
+
+
+
+
+
+
