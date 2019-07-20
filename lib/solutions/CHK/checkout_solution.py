@@ -48,4 +48,3 @@ def checkout(skus):
 	cartTotal = totalA + totalB + totalC + totalD + totalE
 
 	return cartTotal
-
