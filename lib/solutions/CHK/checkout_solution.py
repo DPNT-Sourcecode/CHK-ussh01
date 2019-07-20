@@ -31,12 +31,19 @@ def checkout(skus):
 			return -1
 
 	# Compute each individual SKUs totals
+	totalA = int((qtyA / 5)) * 200
+	qtyA = int(qtyA / 5)
 	totalA = ((qtyA % 3) * 50 + int((qtyA / 3)) * 130)
-	totalB = ((qtyB % 2) * 30 + int((qtyB / 2)) * 45)
+
+
 	totalC = qtyC * 20
 	totalD = qtyD * 15
+	totalE = qtyE * 40
+	
+	totalB = 
+	totalB = ((qtyB % 2) * 30 + int((qtyB / 2)) * 45)
 
 	# Computer overall cart total
-	cartTotal = totalA + totalB + totalC + totalD
+	cartTotal = totalA + totalB + totalC + totalD + totalE
 
 	return cartTotal
