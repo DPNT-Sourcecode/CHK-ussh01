@@ -9,4 +9,7 @@ class TestChk():
         assert checkout_solution.checkout("AA") == 100
         assert checkout_solution.checkout("BB") == 45
         assert checkout_solution.checkout("BBBB") == 90
+
         assert checkout_solution.checkout("ABCDE") == 155
+        assert checkout_solution.checkout("ABCDEE") == 165
+        assert checkout_solution.checkout("ABBCDEE") == 195
