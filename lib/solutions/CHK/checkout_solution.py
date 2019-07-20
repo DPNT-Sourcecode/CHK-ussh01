@@ -39,9 +39,9 @@ def checkout(skus):
 	totalS = itemQtys['S'] * 30
 	totalT = itemQtys['T'] * 20
 	totalW = itemQtys['W'] * 20
-	totalX = itemQtys['X'] * 90
-	totalY = itemQtys['Y'] * 10
-	totalZ = itemQtys['Z'] * 50
+	totalX = itemQtys['X'] * 17
+	totalY = itemQtys['Y'] * 20
+	totalZ = itemQtys['Z'] * 21
 
 	# A
 	# totalA = int((itemQtys['A'] / 5)) * 200 # Favour Pack of 5
@@ -68,7 +68,7 @@ def checkout(skus):
 	totalH = applyOffer3(itemQtys['H'], 10, 5, 80, 45, 10)
 
 	# K
-	totalK = applyOffer2(itemQtys['K'], 80, 2, 150)
+	totalK = applyOffer2(itemQtys['K'], 70, 2, 120)
 
 	# M (possibly needs debugging later)
 	totalM = applyOffer1(itemQtys['M'], itemQtys['N'], 3, 15, 15, 15)
@@ -114,4 +114,5 @@ def applyOffer3(itemQty, firstOfferQty, secondOfferQty, firstOfferPrice, secondO
 
 	return total
 
-
+def applyGroupOffer(itemQtys):
+	
