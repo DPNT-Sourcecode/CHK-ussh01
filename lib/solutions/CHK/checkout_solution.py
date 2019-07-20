@@ -34,19 +34,22 @@ def checkout(skus):
 			return -1
 
 	# Compute each individual SKUs totals
-	totalA = int((qtyA / 5)) * 200
+
+	totalA = int((qtyA / 5)) * 200 # Favour Pack of 5
 	qtyA -= 5 * int(qtyA / 5)
-	totalA += ((qtyA % 3) * 50 + int((qtyA / 3)) * 130)
+	totalA += ((qtyA % 3) * 50 + int((qtyA / 3)) * 130) # Computer for pack of 3 & remainder
 
 	totalC = qtyC * 20
 	totalD = qtyD * 15
 	totalE = qtyE * 40
 
+	# If E offer applies, update B quantity accordingly
 	totalB = 0
 	if qtyB != 0:
 		qtyB = qtyB - int(qtyE / 2)
 		totalB = ((qtyB % 2) * 30 + int((qtyB / 2)) * 45)
 
+		
 	totalF = ((qtyF % 3) * 10 + int((qtyF / 3)) * 20)
 
 	# Computer overall cart total
