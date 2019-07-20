@@ -67,13 +67,16 @@ def checkout(skus):
 	# K
 	totalK = ((itemQtys['K'] % 2) * 80 + int((itemQtys['K'] / 2)) * 150)
 
-	# M
-	totalM = applyOffer1(itemQtys['M'], itemQtys['N'], 3, )
+	# M (possibly needs debugging later)
+	totalM = applyOffer1(itemQtys['M'], itemQtys['N'], 3, 15, 15, 15)
+
+	totalP = 
 
 
 
 	# Computer overall cart total
-	cartTotal = totalA + totalB + totalC + totalD + totalE + totalF
+	cartTotal = totalA + totalB + totalC + totalD + totalE + totalF + totalG + totalI + totalJ + totalK + totalL + totalM + totalN
+	# cartTotal = totalA + totalB + totalC + totalD + totalE + totalF + totalG + totalI + totalJ + totalK + totalL + totalM + totalN + totalO + totalP + totalQ + totalR + totalS + totalT + totalU + totalV + totalW + totalX + totalY + totalZ
 
 	return cartTotal
 
