@@ -115,4 +115,3 @@ def applyOffer3(itemQty, firstOfferQty, secondOfferQty, firstOfferPrice, secondO
 	return total
 
 
-
