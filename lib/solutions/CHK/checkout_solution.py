@@ -28,6 +28,7 @@ def checkout(skus):
 	# No offer items first
 	totalC = itemQtys['C'] * 20
 	totalD = itemQtys['D'] * 15
+	totalE = itemQtys['E'] * 40
 	totalG = itemQtys['G'] * 20
 	totalI = itemQtys['I'] * 35
 	totalJ = itemQtys['J'] * 60
@@ -52,10 +53,18 @@ def checkout(skus):
 		itemQtys['B'] = itemQtys['B'] - int(itemQtys['E'] / 2)
 		totalB = ((itemQtys['B'] % 2) * 30 + int((itemQtys['B'] / 2)) * 45)
 
-	
+	# F
 	totalF = ((itemQtys['F'] % 3) * 10 + int((itemQtys['F'] / 3)) * 20)
+
+	# H
+	totalH = int((itemQtys['H'] / 10)) * 80
+	itemQtys['H'] -= 10 * int(itemQtys['H'] / 10)
+	totalH += ((itemQtys['H'] % 3) * 50 + int((itemQtys['H'] / 3)) * 130)
+
+
 
 	# Computer overall cart total
 	cartTotal = totalA + totalB + totalC + totalD + totalE + totalF
 
 	return cartTotal
+
