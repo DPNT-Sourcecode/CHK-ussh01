@@ -36,7 +36,7 @@ def checkout(skus):
 	totalN = itemQtys['N'] * 40
 	totalO = itemQtys['O'] * 10
 	totalR = itemQtys['R'] * 50
-	totalS = itemQtys['S'] * 30
+	totalS = itemQtys['S'] * 20
 	totalT = itemQtys['T'] * 20
 	totalW = itemQtys['W'] * 20
 	totalX = itemQtys['X'] * 17
@@ -118,7 +118,7 @@ def applyGroupOffer(itemQtys):
 	# Keep track of each group's totals
 	groupQtys = {'S': 0, 'T': 0, 'X': 0, 'Y': 0, 'Z': 0}
 
-
+	# NOTE: FAVOUR CUSTOMER PRICE POINT
 
 	groupQtys['S'] = itemQtys['S']
 	groupQtys['T'] = itemQtys['T']
@@ -126,16 +126,20 @@ def applyGroupOffer(itemQtys):
 	groupQtys['Y'] = itemQtys['Y']
 	groupQtys['Z'] = itemQtys['Z']
 
+	# Find total qty of items across the group
 	groupQtyTotal = 0
 	for item in groupQtys:
-		# if groupQtys[item] > 0:
 		groupQtyTotal += groupQtys[item]
-			# itemQtys[item] -=
+
+	# Update 
+	for i in range(groupQtyTotal):
+
+
 
 	groupTotalPrice = int(groupQtyTotal / 3) * 45
 
 	# Calculate total for the individual items after calculating group price
-	
+
 
 
 	groupQtyTotal = 0
@@ -148,6 +152,7 @@ def applyGroupOffer(itemQtys):
 		elif item == 'X':
 		elif item == 'Y':
 		elif item == 'Z':
+
 
 
 
