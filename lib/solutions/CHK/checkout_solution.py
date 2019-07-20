@@ -77,10 +77,11 @@ def checkout(skus):
 
 	# Q
 	# totalQ = applyOffer2(itemQtys['Q'], 30, 3, 80)
+	totalQ = applyOffer1(itemQtys['Q'], itemQtys['R'], 3, 30, 80, 3)
 
+	# U
+	
 
-	# R
-	totalR = applyOffer1(itemQtys['R'], )
 
 
 	# Computer overall cart total
@@ -102,6 +103,7 @@ def applyOffer1(itemQty1, itemQty2, specialOfferQty, normalPrice, normalOfferPri
 # Example: 2K for 150
 def applyOffer2(itemQty, normalPrice, offerQty, offerPrice):
 	return ((itemQty % offerQty) * normalPrice + int((itemQty / offerQty)) * offerPrice)
+
 
 
 
