@@ -7,15 +7,15 @@ def checkout(skus):
 	if type(skus) != str:
 		return -1
 
-	# Alphabets = SKUs
-	items = skus.split(' ')
+	if len(skus) == 0:
+		return 0
 
 	# Keep track of the quantity of each item in the cart
 	qtyA = 0
 	qtyB = 0
 	qtyC = 0
 	qtyD = 0
-	for item in items:
+	for item in skus:
 		if item == 'A':
 			qtyA += 1
 		elif item == 'B':
