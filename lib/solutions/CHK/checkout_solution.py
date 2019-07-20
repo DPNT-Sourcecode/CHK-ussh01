@@ -131,21 +131,32 @@ def applyGroupOffer(itemQtys):
 	# Sample: 3Z, 2S, 1X
 	# Sample: 1Z, 2S, 1X
 
+	# Z. not enough for group
+	# S. not enough
+	# S. enough
+	# X. not enough
+
 	# Find total qty of items across the group
 	groupQtyTotal = 0
 	groupTotalPrice = 0
+	groupString = ""
 	for item in groupQtys:
-		if item == 'Z':
-			groupQtyTotal += groupQtys[item]
-			
-		if groupQtyTotal % 3 == 0:
-			groupTotalPrice = int(groupQtyTotal / 3) * 45
-			groupQtys[item] = 0
+		groupString += groupQtys[item]
+		# if item == 'Z':
+		# 	groupQtyTotal += groupQtys[item]
 
+		# if groupQtyTotal % 3 == 0:
+		# 	groupTotalPrice = int(groupQtyTotal / 3) * 45
+		# 	groupQtys[item] = 0
+
+	if len(groupString) % 3 == 0:
+		lastIndex = 
+		
 
 	groupTotalPrice = int(groupQtyTotal / 3) * 45
 
 	# Calculate total for the individual items after calculating group price
+
 
 
 
