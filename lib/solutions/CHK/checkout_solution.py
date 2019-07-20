@@ -119,6 +119,7 @@ def applyGroupOffer(itemQtys):
 	groupQtys = {'S': 0, 'T': 0, 'X': 0, 'Y': 0, 'Z': 0}
 
 	# NOTE: FAVOUR CUSTOMER PRICE POINT
+	# Highest to lowest prices: Z > S=T=Y >  X
 
 	groupQtys['S'] = itemQtys['S']
 	groupQtys['T'] = itemQtys['T']
@@ -128,8 +129,14 @@ def applyGroupOffer(itemQtys):
 
 	# Find total qty of items across the group
 	groupQtyTotal = 0
+	groupTotalPrice = 0
 	for item in groupQtys:
-		groupQtyTotal += groupQtys[item]
+		if item == 'Z':
+			groupQtyTotal += groupQtys[item]
+
+		if groupQtyTotal % 3 == 0:
+			groupTotalPrice = int(groupQtyTotal / 3) * 45
+
 
 	# Update 
 	for i in range(groupQtyTotal):
@@ -152,6 +159,7 @@ def applyGroupOffer(itemQtys):
 		elif item == 'X':
 		elif item == 'Y':
 		elif item == 'Z':
+
 
 
 
