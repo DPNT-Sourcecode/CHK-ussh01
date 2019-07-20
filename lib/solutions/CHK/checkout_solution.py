@@ -33,7 +33,8 @@ def checkout(skus):
 	totalI = itemQtys['I'] * 35
 	totalJ = itemQtys['J'] * 60
 	totalL = itemQtys['L'] * 90
-	totalM = itemQtys['M'] * 15
+	# totalM = itemQtys['M'] * 15
+	totalN = itemQtys['N'] * 40
 	totalO = itemQtys['O'] * 10
 	totalS = itemQtys['S'] * 30
 	totalT = itemQtys['T'] * 20
@@ -64,7 +65,7 @@ def checkout(skus):
 	# K
 	totalK = ((itemQtys['K'] % 2) * 80 + int((itemQtys['K'] / 2)) * 150)
 
-	# N
+	# M
 
 
 
@@ -73,5 +74,21 @@ def checkout(skus):
 	cartTotal = totalA + totalB + totalC + totalD + totalE + totalF
 
 	return cartTotal
+
+
+# Example offer: 2E get one B free
+def applyOffer1(itemQty1, itemQty2, , normalPrice):
+	total = 0
+	if itemQty1 != 0:
+		itemQty1 = itemQty1 - int(itemQty2 / 2)
+		total = ((itemQty1 % 2) * 30 + int((itemQty1 / 2)) * 45)
+
+	return total
+
+
+
+
+
+
 
 
