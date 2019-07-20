@@ -15,6 +15,7 @@ def checkout(skus):
 	qtyB = 0
 	qtyC = 0
 	qtyD = 0
+	qtyE = 0
 	for item in skus:
 		if item == 'A':
 			qtyA += 1
@@ -24,6 +25,8 @@ def checkout(skus):
 			qtyC += 1
 		elif item == 'D':
 			qtyD += 1
+		elif item == 'E':
+			qtyE += 1
 		else:
 			return -1
 
