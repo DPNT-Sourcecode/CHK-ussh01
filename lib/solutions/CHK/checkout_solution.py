@@ -1,4 +1,4 @@
-
+import string
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -12,6 +12,9 @@ def checkout(skus):
 
 	# Keep track of the quantity of each item in the cart
 	itemQtys = {}
+	for letter in string.ascii_uppercase:
+		itemQtys[letter] = 0
+		
 	qtyA = 0
 	qtyB = 0
 	qtyC = 0
@@ -57,3 +60,4 @@ def checkout(skus):
 	cartTotal = totalA + totalB + totalC + totalD + totalE + totalF
 
 	return cartTotal
+
