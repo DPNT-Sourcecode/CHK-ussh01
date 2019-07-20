@@ -16,6 +16,7 @@ def checkout(skus):
 	qtyC = 0
 	qtyD = 0
 	qtyE = 0
+	qtyF = 0
 	for item in skus:
 		if item == 'A':
 			qtyA += 1
@@ -27,6 +28,8 @@ def checkout(skus):
 			qtyD += 1
 		elif item == 'E':
 			qtyE += 1
+		elif item == 'F':
+			qtyF += 1
 		else:
 			return -1
 
@@ -44,7 +47,9 @@ def checkout(skus):
 		qtyB = qtyB - int(qtyE / 2)
 		totalB = ((qtyB % 2) * 30 + int((qtyB / 2)) * 45)
 
+	totalF = ((qtyF % 3) * 10 + int((qtyF / 3)) * 20)
+
 	# Computer overall cart total
-	cartTotal = totalA + totalB + totalC + totalD + totalE
+	cartTotal = totalA + totalB + totalC + totalD + totalE + totalF
 
 	return cartTotal
