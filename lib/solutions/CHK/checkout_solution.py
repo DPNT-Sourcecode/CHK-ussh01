@@ -57,7 +57,8 @@ def checkout(skus):
 
 
 	# F
-	totalF = ((itemQtys['F'] % 3) * 10 + int((itemQtys['F'] / 3)) * 20)
+	# totalF = ((itemQtys['F'] % 3) * 10 + int((itemQtys['F'] / 3)) * 20)
+	totalF = applyOffer2(itemQtys['F'], 10, 3, 20)
 
 	# H
 	totalH = int((itemQtys['H'] / 10)) * 80
@@ -65,7 +66,7 @@ def checkout(skus):
 	totalH += ((itemQtys['H'] % 5) * 10 + int((itemQtys['H'] / 5)) * 45)
 
 	# K
-	totalK = ((itemQtys['K'] % 2) * 80 + int((itemQtys['K'] / 2)) * 150)
+	totalK = applyOffer2(itemQtys['K'], 80, 2, 150)
 
 	# M (possibly needs debugging later)
 	totalM = applyOffer1(itemQtys['M'], itemQtys['N'], 3, 15, 15, 15)
@@ -90,6 +91,9 @@ def applyOffer1(itemQty1, itemQty2, specialOfferQty, normalPrice, normalOfferPri
 
 	return total
 
+# Example: 2K for 150
+def applyOffer2(itemQty, normalPrice, offerQty, offerPrice):
+	return ((itemQty % offerQty) * normalPrice + int((itemQty / offerQty)) * offerPrice)
 
 
 
